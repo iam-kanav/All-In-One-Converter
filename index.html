@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter Pro</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="converter-container">
+        <header>
+            <h1><i class="fa-solid fa-arrows-rotate"></i> Unit Converter Pro</h1>
+        </header>
+
+        <nav class="converter-tabs">
+            <button class="tab-button active" data-converter="temperature">
+                <i class="fa-solid fa-temperature-half"></i> Temperature
+            </button>
+            <button class="tab-button" data-converter="length">
+                <i class="fa-solid fa-ruler"></i> Length
+            </button>
+            <button class="tab-button" data-converter="weight">
+                <i class="fa-solid fa-weight-hanging"></i> Weight
+            </button>
+            <button class="tab-button" data-converter="currency">
+                <i class="fa-solid fa-coins"></i> Currency
+            </button>
+        </nav>
+
+        <main class="converter-content">
+
+            {/* <!-- Temperature Converter --> */}
+            <section id="temperature" class="converter-section active">
+                <div class="conversion-row">
+                    <div class="input-group">
+                        <label for="tempInput">Value:</label>
+                        <input type="number" id="tempInput" placeholder="0">
+                    </div>
+                    <div class="select-group">
+                        <label for="tempFromUnit">From:</label>
+                        <select id="tempFromUnit">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                    <button class="swap-button" data-type="temp" title="Swap Units"><i class="fa-solid fa-right-left"></i></button>
+                    <div class="select-group">
+                        <label for="tempToUnit">To:</label>
+                        <select id="tempToUnit">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F" selected>Fahrenheit (°F)</option> {/* Default selection */}
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="result-area" id="tempResultArea">
+                    Result: <span class="result-value">-</span>
+                </div>
+            </section>
+
+            {/* <!-- Length Converter --> */}
+            <section id="length" class="converter-section">
+                <div class="conversion-row">
+                    <div class="input-group">
+                        <label for="lengthInput">Value:</label>
+                        <input type="number" id="lengthInput" placeholder="0" step="any">
+                    </div>
+                    <div class="select-group">
+                        <label for="lengthFromUnit">From:</label>
+                        <select id="lengthFromUnit">
+                            <option value="m">Meters (m)</option>
+                            <option value="km">Kilometers (km)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="mi">Miles (mi)</option>
+                        </select>
+                    </div>
+                     <button class="swap-button" data-type="length" title="Swap Units"><i class="fa-solid fa-right-left"></i></button>
+                    <div class="select-group">
+                        <label for="lengthToUnit">To:</label>
+                        <select id="lengthToUnit">
+                             <option value="m">Meters (m)</option>
+                             <option value="km">Kilometers (km)</option>
+                             <option value="ft" selected>Feet (ft)</option> {/* Default selection */}
+                             <option value="mi">Miles (mi)</option>
+                        </select>
+                    </div>
+                </div>
+                 <div class="result-area" id="lengthResultArea">
+                    Result: <span class="result-value">-</span>
+                </div>
+            </section>
+
+            {/* <!-- Weight Converter --> */}
+            <section id="weight" class="converter-section">
+                 <div class="conversion-row">
+                    <div class="input-group">
+                        <label for="weightInput">Value:</label>
+                        <input type="number" id="weightInput" placeholder="0" step="any">
+                    </div>
+                    <div class="select-group">
+                        <label for="weightFromUnit">From:</label>
+                        <select id="weightFromUnit">
+                            <option value="kg">Kilograms (kg)</option>
+                            <option value="g">Grams (g)</option>
+                            <option value="lb">Pounds (lb)</option>
+                            <option value="oz">Ounces (oz)</option>
+                        </select>
+                    </div>
+                     <button class="swap-button" data-type="weight" title="Swap Units"><i class="fa-solid fa-right-left"></i></button>
+                    <div class="select-group">
+                        <label for="weightToUnit">To:</label>
+                        <select id="weightToUnit">
+                            <option value="kg">Kilograms (kg)</option>
+                            <option value="g">Grams (g)</option>
+                            <option value="lb" selected>Pounds (lb)</option> {/* Default selection */}
+                            <option value="oz">Ounces (oz)</option>
+                        </select>
+                    </div>
+                </div>
+                 <div class="result-area" id="weightResultArea">
+                    Result: <span class="result-value">-</span>
+                </div>
+            </section>
+
+             {/* <!-- Currency Converter --> */}
+            <section id="currency" class="converter-section">
+                 <div class="conversion-row">
+                    <div class="input-group">
+                        <label for="currencyInput">Amount:</label>
+                        <input type="number" id="currencyInput" placeholder="0.00" step="any">
+                    </div>
+                    <div class="select-group">
+                        <label for="currencyFromUnit">From:</label>
+                        <select id="currencyFromUnit">
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                        </select>
+                    </div>
+                     <button class="swap-button" data-type="currency" title="Swap Units"><i class="fa-solid fa-right-left"></i></button>
+                    <div class="select-group">
+                        <label for="currencyToUnit">To:</label>
+                        <select id="currencyToUnit">
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="EUR" selected>Euro (EUR)</option> {/* Default selection */}
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                        </select>
+                    </div>
+                </div>
+                 <div class="result-area" id="currencyResultArea">
+                    Result: <span class="result-value">-</span>
+                 </div>
+                 <p class="disclaimer">Note: Currency rates are fixed placeholders for demo purposes.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
